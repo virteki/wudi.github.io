@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/wudi.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/wudi.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/wudi.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/wudi.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/wudi.github.io/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;wudi1183456665.github.io&quot;,&quot;root&quot;:&quot;&#x2F;wudi.github.io&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;wudi.github.io&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
+<meta name="description" content="总结了3种输出网络中间层的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pytorch获取中间层输出的几种方法">
+<meta property="og:url" content="https://wudi1183456665.github.io/wudi.github.io/2021/04/27/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="WuDi&#39;s Blog">
+<meta property="og:description" content="总结了3种输出网络中间层的方法">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-27T13:03:33.116Z">
+<meta property="article:modified_time" content="2021-05-08T12:13:39.400Z">
+<meta property="article:author" content="WuDi">
+<meta property="article:tag" content="PyTorch">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wudi1183456665.github.io/wudi.github.io/2021/04/27/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;wudi1183456665.github.io&#x2F;wudi.github.io&#x2F;2021&#x2F;04&#x2F;27&#x2F;pytorch&#x2F;Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;04&#x2F;27&#x2F;pytorch&#x2F;Pytorch获取中间层输出的几种方法&#x2F;&quot;,&quot;title&quot;:&quot;Pytorch获取中间层输出的几种方法&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>Pytorch获取中间层输出的几种方法 | WuDi's Blog</title><script src="/wudi.github.io/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/wudi.github.io/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/wudi.github.io/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">WuDi's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/wudi.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-resume"><a href="/wudi.github.io/resume/resume" rel="section"><i class="fa fa-user fa-fw"></i>Resume</a></li>
+        <li class="menu-item menu-item-research"><a href="/wudi.github.io/research/research" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Research</a></li>
+        <li class="menu-item menu-item-tags"><a href="/wudi.github.io/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/wudi.github.io/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/wudi.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-number">1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">2.</span> <span class="nav-text">方法2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%953%EF%BC%9Ahook"><span class="nav-number">3.</span> <span class="nav-text">方法3：hook</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="WuDi"
+      src="/wudi.github.io/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">WuDi</p>
+  <div class="site-description" itemprop="description">Keep Moving</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/wudi.github.io/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/wudi.github.io/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/wudi.github.io/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wudi1183456665" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wudi1183456665" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:iswudi@buaa.edu.cn" title="E-Mail → mailto:iswudi@buaa.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wudi1183456665.github.io/wudi.github.io/2021/04/27/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/wudi.github.io/images/avatar.gif">
+      <meta itemprop="name" content="WuDi">
+      <meta itemprop="description" content="Keep Moving">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WuDi's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Pytorch获取中间层输出的几种方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-27 21:03:33" itemprop="dateCreated datePublished" datetime="2021-04-27T21:03:33+08:00">2021-04-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-08 20:13:39" itemprop="dateModified" datetime="2021-05-08T20:13:39+08:00">2021-05-08</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>总结了3种输出网络中间层的方法</p>
+<span id="more"></span>
+
+<h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line">model = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">3</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, bias=<span class="literal">False</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">9</span>),</span><br><span class="line">            nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">            nn.AdaptiveAvgPool2d((<span class="number">1</span>, <span class="number">1</span>)),</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假如想要获得ReLu的输出</span></span><br><span class="line">x = torch.rand([<span class="number">2</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(model)):</span><br><span class="line">    x = model[i](x)</span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">2</span>:</span><br><span class="line">        ReLu_out = x</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;ReLu_out.shape：\n\t&#x27;</span>,ReLu_out.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;x.shape：\n\t&#x27;</span>,x.shape)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntermediateLayerGetter</span>(<span class="params">nn.ModuleDict</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Module wrapper that returns intermediate layers from a model</span></span><br><span class="line"><span class="string">    It has a strong assumption that the modules have been registered</span></span><br><span class="line"><span class="string">    into the model in the same order as they are used.</span></span><br><span class="line"><span class="string">    This means that one should **not** reuse the same nn.Module</span></span><br><span class="line"><span class="string">    twice in the forward if you want this to work.</span></span><br><span class="line"><span class="string">    Additionally, it is only able to query submodules that are directly</span></span><br><span class="line"><span class="string">    assigned to the model. So if `model` is passed, `model.feature1` can</span></span><br><span class="line"><span class="string">    be returned, but not `model.feature1.layer2`.</span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">        model (nn.Module): model on which we will extract the features</span></span><br><span class="line"><span class="string">        return_layers (Dict[name, new_name]): a dict containing the names</span></span><br><span class="line"><span class="string">            of the modules for which the activations will be returned as</span></span><br><span class="line"><span class="string">            the key of the dict, and the value of the dict is the name</span></span><br><span class="line"><span class="string">            of the returned activation (which the user can specify).</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, model, return_layers</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">set</span>(return_layers).issubset([name <span class="keyword">for</span> name, _ <span class="keyword">in</span> model.named_children()]):</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&quot;return_layers are not present in model&quot;</span>)</span><br><span class="line"> </span><br><span class="line">        orig_return_layers = return_layers</span><br><span class="line">        return_layers = &#123;k: v <span class="keyword">for</span> k, v <span class="keyword">in</span> return_layers.items()&#125;</span><br><span class="line">        layers = OrderedDict()</span><br><span class="line">        <span class="keyword">for</span> name, module <span class="keyword">in</span> model.named_children():</span><br><span class="line">            layers[name] = module</span><br><span class="line">            <span class="keyword">if</span> name <span class="keyword">in</span> return_layers:</span><br><span class="line">                <span class="keyword">del</span> return_layers[name]</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> return_layers:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"> </span><br><span class="line">        <span class="built_in">super</span>(IntermediateLayerGetter, self).__init__(layers)</span><br><span class="line">        self.return_layers = orig_return_layers</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, x</span>):</span></span><br><span class="line">        out = OrderedDict()</span><br><span class="line">        <span class="keyword">for</span> name, module <span class="keyword">in</span> self.named_children():</span><br><span class="line">            x = module(x)</span><br><span class="line">            <span class="keyword">if</span> name <span class="keyword">in</span> self.return_layers:</span><br><span class="line">                out_name = self.return_layers[name]</span><br><span class="line">                out[out_name] = x</span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line"><span class="comment"># example</span></span><br><span class="line">m = torchvision.models.resnet18(pretrained=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># extract layer1 and layer3, giving as names `feat1` and feat2`</span></span><br><span class="line">new_m = torchvision.models._utils.IntermediateLayerGetter(m,&#123;<span class="string">&#x27;layer1&#x27;</span>: <span class="string">&#x27;feat1&#x27;</span>, <span class="string">&#x27;layer3&#x27;</span>: <span class="string">&#x27;feat2&#x27;</span>&#125;)</span><br><span class="line">out = new_m(torch.rand(<span class="number">1</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>))</span><br><span class="line"><span class="built_in">print</span>([(k, v.shape) <span class="keyword">for</span> k, v <span class="keyword">in</span> out.items()])</span><br><span class="line"><span class="comment"># [(&#x27;feat1&#x27;, torch.Size([1, 64, 56, 56])), (&#x27;feat2&#x27;, torch.Size([1, 256, 14, 14]))]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="方法3：hook"><a href="#方法3：hook" class="headerlink" title="方法3：hook"></a>方法3：hook</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestForHook</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line"></span><br><span class="line">        self.linear_1 = nn.Linear(in_features=<span class="number">2</span>, out_features=<span class="number">2</span>)</span><br><span class="line">        self.linear_2 = nn.Linear(in_features=<span class="number">2</span>, out_features=<span class="number">1</span>)</span><br><span class="line">        self.relu = nn.ReLU()</span><br><span class="line">        self.relu6 = nn.ReLU6()</span><br><span class="line">        self.initialize()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, x</span>):</span></span><br><span class="line">        linear_1 = self.linear_1(x)</span><br><span class="line">        linear_2 = self.linear_2(linear_1)</span><br><span class="line">        relu = self.relu(linear_2)</span><br><span class="line">        relu_6 = self.relu6(relu)</span><br><span class="line">        layers_in = (x, linear_1, linear_2)</span><br><span class="line">        layers_out = (linear_1, linear_2, relu)</span><br><span class="line">        <span class="keyword">return</span> relu_6, layers_in, layers_out</span><br><span class="line"></span><br><span class="line">features_in_hook = []</span><br><span class="line">features_out_hook = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hook</span>(<span class="params">module, fea_in, fea_out</span>):</span></span><br><span class="line">    features_in_hook.append(fea_in)</span><br><span class="line">    features_out_hook.append(fea_out)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">net = TestForHook()</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"># 第一种写法，按照类型勾，但如果有重复类型的layer比较复杂</span></span><br><span class="line"><span class="string">net_chilren = net.children()</span></span><br><span class="line"><span class="string">for child in net_chilren:</span></span><br><span class="line"><span class="string">    if not isinstance(child, nn.ReLU6):</span></span><br><span class="line"><span class="string">        child.register_forward_hook(hook=hook)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">推荐下面我改的这种写法，因为我自己的网络中，在Sequential中有很多层，</span></span><br><span class="line"><span class="string">这种方式可以直接先print(net)一下，找出自己所需要那个layer的名称，按名称勾出来</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">layer_name = <span class="string">&#x27;relu_6&#x27;</span></span><br><span class="line"><span class="keyword">for</span> (name, module) <span class="keyword">in</span> net.named_modules():</span><br><span class="line">    <span class="keyword">if</span> name == layer_name:</span><br><span class="line">        module.register_forward_hook(hook=hook)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(features_in_hook)  <span class="comment"># 勾的是指定层的输入</span></span><br><span class="line"><span class="built_in">print</span>(features_out_hook)  <span class="comment"># 勾的是指定层的输出</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/wudi.github.io/tags/PyTorch/" rel="tag"># PyTorch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/wudi.github.io/2021/04/30/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/english-interview/" rel="next" title="English Interview">
+                  English Interview <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/wudi.github.io/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WuDi</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/wudi.github.io/js/utils.js"></script><script src="/wudi.github.io/js/motion.js"></script><script src="/wudi.github.io/js/schemes/muse.js"></script><script src="/wudi.github.io/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
