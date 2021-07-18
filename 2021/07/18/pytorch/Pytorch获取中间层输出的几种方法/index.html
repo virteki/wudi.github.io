@@ -22,26 +22,26 @@
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;awesomecoder.top&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
 <meta name="description" content="总结了3种输出网络中间层的方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch获取中间层输出的几种方法">
-<meta property="og:url" content="http://awesomecoder.top/2021/04/27/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="pyTorch获取中间层输出的几种方法">
+<meta property="og:url" content="http://awesomecoder.top/2021/07/18/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="WuDi&#39;s Blog">
 <meta property="og:description" content="总结了3种输出网络中间层的方法">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-27T13:03:33.116Z">
-<meta property="article:modified_time" content="2021-05-08T12:13:39.400Z">
+<meta property="article:published_time" content="2021-07-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-18T14:59:28.184Z">
 <meta property="article:author" content="WuDi">
-<meta property="article:tag" content="PyTorch">
+<meta property="article:tag" content="pyTorch">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://awesomecoder.top/2021/04/27/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
+<link rel="canonical" href="http://awesomecoder.top/2021/07/18/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;awesomecoder.top&#x2F;2021&#x2F;04&#x2F;27&#x2F;pytorch&#x2F;Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;04&#x2F;27&#x2F;pytorch&#x2F;Pytorch获取中间层输出的几种方法&#x2F;&quot;,&quot;title&quot;:&quot;Pytorch获取中间层输出的几种方法&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;awesomecoder.top&#x2F;2021&#x2F;07&#x2F;18&#x2F;pytorch&#x2F;Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;07&#x2F;18&#x2F;pytorch&#x2F;Pytorch获取中间层输出的几种方法&#x2F;&quot;,&quot;title&quot;:&quot;pyTorch获取中间层输出的几种方法&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>Pytorch获取中间层输出的几种方法 | WuDi's Blog</title><script src="/js/config.js"></script>
+<title>pyTorch获取中间层输出的几种方法 | WuDi's Blog</title><script src="/js/config.js"></script>
   
 
 
@@ -197,7 +197,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://awesomecoder.top/2021/04/27/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://awesomecoder.top/2021/07/18/pytorch/Pytorch%E8%8E%B7%E5%8F%96%E4%B8%AD%E9%97%B4%E5%B1%82%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -210,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Pytorch获取中间层输出的几种方法
+          pyTorch获取中间层输出的几种方法
         </h1>
 
         <div class="post-meta-container">
@@ -220,16 +220,19 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-04-27 21:03:33" itemprop="dateCreated datePublished" datetime="2021-04-27T21:03:33+08:00">2021-04-27</time>
+      <time title="Created: 2021-07-18 00:00:00 / Modified: 22:59:28" itemprop="dateCreated datePublished" datetime="2021-07-18T00:00:00+08:00">2021-07-18</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-08 20:13:39" itemprop="dateModified" datetime="2021-05-08T20:13:39+08:00">2021-05-08</time>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
       </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -265,18 +268,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
+              <a href="/tags/pyTorch/" rel="tag"># pyTorch</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/04/30/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/nvim_linux/" rel="prev" title="Neovim + Ubuntu快速搭建教程">
+                  <i class="fa fa-chevron-left"></i> Neovim + Ubuntu快速搭建教程
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/04/30/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/nvim_linux/" rel="next" title="Neovim + Ubuntu快速搭建教程">
-                  Neovim + Ubuntu快速搭建教程 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
