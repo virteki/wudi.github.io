@@ -77,3 +77,30 @@
 #footer #footer-wrap a {
     color: var(--font-color)
 }
+
+
+/* 
+#article-container h1:before {
+  content: "H1";
+  margin: -.2rem 0 0 -2.3rem;
+}
+#article-container h2:before {
+  content: "H2";
+  margin: -.2rem 0 0 -2.2rem;
+}
+#article-container h3:before {
+  content: "H3";
+  margin: -.1rem 0 0 -2.1rem;
+}
+#article-container h4:before {
+  content: "H4";
+  margin: -.07rem 0 0 -1.9rem;
+}
+#article-container h5:before {
+  content: "H5";
+  margin: -.02rem 0 0 -1.8rem;
+}
+#article-container h6:before {
+  content: "H6";
+  margin: -.02rem 0 0 -1.8rem;
+} */
