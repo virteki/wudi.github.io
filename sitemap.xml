@@ -596,7 +596,7 @@
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/2021/04/30/tutorials/%E8%8B%B1%E8%AF%AD%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://awesomecoder.top/2021/04/30/%E5%8D%9A%E5%A3%AB%E7%94%B3%E8%AF%B7/%E8%8B%B1%E8%AF%AD%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2022-02-18</lastmod>
     
@@ -605,7 +605,7 @@
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/2021/04/30/%E5%8D%9A%E5%A3%AB%E7%94%B3%E8%AF%B7/%E8%8B%B1%E8%AF%AD%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://awesomecoder.top/2021/04/30/tutorials/%E8%8B%B1%E8%AF%AD%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2022-02-18</lastmod>
     
@@ -711,20 +711,6 @@
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/tags/%E5%B9%B2%E8%B4%A7/</loc>
-    <lastmod>2022-03-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/Interview/</loc>
-    <lastmod>2022-03-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://awesomecoder.top/tags/pyTorch/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -767,13 +753,6 @@
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/tags/docker/</loc>
-    <lastmod>2022-03-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://awesomecoder.top/tags/ubuntu/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -782,6 +761,27 @@
   
   <url>
     <loc>http://awesomecoder.top/tags/neovim/</loc>
+    <lastmod>2022-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/docker/</loc>
+    <lastmod>2022-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/Interview/</loc>
+    <lastmod>2022-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/%E5%B9%B2%E8%B4%A7/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -832,14 +832,14 @@
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/categories/%E5%B9%B2%E8%B4%A7/</loc>
+    <loc>http://awesomecoder.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://awesomecoder.top/categories/%E5%B9%B2%E8%B4%A7/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
