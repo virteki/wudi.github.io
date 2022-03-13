@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://awesomecoder.top/2022/03/11/paper_reading/alexnet/</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
     <loc>http://awesomecoder.top/2022/03/12/tutorials/2021%E5%B9%B4%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%8C%BB%E5%B7%A5%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E7%AC%94%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2022-03-12</lastmod>
   </url>
@@ -14,10 +18,6 @@
   </url>
   <url>
     <loc>http://awesomecoder.top/2022/03/11/paper_reading/googlenet/</loc>
-    <lastmod>2022-03-11</lastmod>
-  </url>
-  <url>
-    <loc>http://awesomecoder.top/2022/03/11/paper_reading/alexnet/</loc>
     <lastmod>2022-03-11</lastmod>
   </url>
   <url>
@@ -229,11 +229,11 @@
     <lastmod>2022-02-20</lastmod>
   </url>
   <url>
-    <loc>http://awesomecoder.top/2021/04/30/%E5%8D%9A%E5%A3%AB%E7%94%B3%E8%AF%B7/%E8%8B%B1%E8%AF%AD%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://awesomecoder.top/2021/04/30/tutorials/%E8%8B%B1%E8%AF%AD%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-02-18</lastmod>
   </url>
   <url>
-    <loc>http://awesomecoder.top/2021/04/30/tutorials/%E8%8B%B1%E8%AF%AD%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://awesomecoder.top/2021/04/30/%E5%8D%9A%E5%A3%AB%E7%94%B3%E8%AF%B7/%E8%8B%B1%E8%AF%AD%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-02-18</lastmod>
   </url>
   <url>
