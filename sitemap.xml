@@ -725,6 +725,13 @@
   </url>
   
   <url>
+    <loc>http://awesomecoder.top/tags/C/</loc>
+    <lastmod>2022-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://awesomecoder.top/tags/pyTorch/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -733,13 +740,6 @@
   
   <url>
     <loc>http://awesomecoder.top/tags/Linux/</loc>
-    <lastmod>2022-03-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/ssh/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -760,7 +760,7 @@
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/tags/docker/</loc>
+    <loc>http://awesomecoder.top/tags/ssh/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -768,6 +768,13 @@
   
   <url>
     <loc>http://awesomecoder.top/tags/Git/</loc>
+    <lastmod>2022-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/docker/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -782,13 +789,6 @@
   
   <url>
     <loc>http://awesomecoder.top/tags/neovim/</loc>
-    <lastmod>2022-03-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/C/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -839,14 +839,14 @@
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://awesomecoder.top/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>http://awesomecoder.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
