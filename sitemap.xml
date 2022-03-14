@@ -671,6 +671,62 @@
   </url>
   
   <url>
+    <loc>http://awesomecoder.top/tags/AlexNet/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/NIPS/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/CV/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/GoogLeNet/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/CVPR/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/Inception-v3/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/VggNet/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://awesomecoder.top/tags/CoRR/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://awesomecoder.top/tags/pyTorch/</loc>
     <lastmod>2022-03-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -748,62 +804,6 @@
   </url>
   
   <url>
-    <loc>http://awesomecoder.top/tags/AlexNet/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/NIPS/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/CV/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/GoogLeNet/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/CVPR/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/Inception-v3/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/VggNet/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/tags/CoRR/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://awesomecoder.top/tags/oj4th/</loc>
     <lastmod>2022-03-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -841,6 +841,13 @@
   </url>
   
   <url>
+    <loc>http://awesomecoder.top/categories/Paper-Reading/</loc>
+    <lastmod>2022-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://awesomecoder.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-03-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -849,13 +856,6 @@
   
   <url>
     <loc>http://awesomecoder.top/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2022-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://awesomecoder.top/categories/Paper-Reading/</loc>
     <lastmod>2022-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
